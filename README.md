@@ -3,6 +3,67 @@
 This is a simple console-based banking application implemented in C#. It provides core banking functionalities, such as user registration and login, account opening, transaction processing, statement generation, and interest calculation.
 
 
+## File Structure 
+
+## Account.cs
+
+Defines the `Account` class, representing a bank account with the following properties:
+
+- **AccountNumber**: Unique identifier for the account.
+- **AccountHolderName**: Name of the account holder.
+- **Type**: Enum value representing the type of account (Savings, Checking).
+- **Balance**: The current balance of the account.
+- **Transactions**: List of transactions associated with the account.
+- **LastInterestCalculation**: Stores the date of the last interest calculation for savings accounts.
+- **Constructor**:
+   - The constructor initializes an account with essential details.
+
+---
+## BankingSystem.cs
+
+Contains the `BankingSystem` class, responsible for managing the core functionalities of the banking application. It includes methods for:
+
+- Opening Accounts
+- Selecting Accounts
+- Processing Deposits
+- Processing Withdrawals
+- Calculating Interest
+- Checking Balance
+- User Input Functions: Implemented helper functions to make sure code reusability.
+
+Acts as a bridge between the user and the `Account` and `Transaction` functionalities.
+
+---
+
+## Transaction.cs
+
+Defines the `Transaction` class, representing a transaction on an account. Properties include:
+
+- **TransactionId**: Unique identifier for each transaction.
+- **Date**: The date the transaction took place.
+- **Type**: Enum representing the type of transaction (Deposit, Withdrawal).
+- **Amount**: The amount involved in the transaction.
+
+---
+
+## User.cs
+
+Defines the `User` class, representing a bank customer with the following properties:
+
+- **UserId**: Unique identifier for each user.
+- **Name**: The name of the user.
+- **Accounts**: A list of accounts owned by the user.
+
+This class provides a structure to associate multiple accounts with a single user.
+
+---
+
+## Program.cs
+
+The entry point of the application. It contains the `Main` method that:
+
+- Initializes the `BankingSystem`
+
 ## Approach
 
 The application is structured around the following key components:
