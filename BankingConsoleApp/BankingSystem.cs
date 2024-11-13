@@ -154,33 +154,7 @@ public class BankingSystem
 
     // ----------------------------------- Account Opening. --------------------------------
 
-    //private void OpenAccount()
-    //{
-    //    Console.WriteLine("Enter account holder name:");
-    //    string holderName = GetUserInput();
-
-    //    Console.WriteLine("Select account type (1 for Savings || 2 for Checking):");
-    //    AccountType type = GetUserInputEnum<AccountType>(new[] { "1", "2" });
-
-    //    Console.WriteLine("Enter initial deposit amount:");
-    //    decimal initialDeposit = GetDecimalInput("Enter a valid amount: ");
-
-    //    string accountNumber = Guid.NewGuid().ToString().Substring(0, 8);
-    //    var account = new Account(accountNumber, holderName, type, initialDeposit);
-
-    //    // Add initial deposit transaction
-    //    account.Transactions.Add(new Transaction
-    //    {
-    //        TransactionId = Guid.NewGuid().ToString(),
-    //        Date = DateTime.Now,
-    //        Type = TransactionType.Deposit,
-    //        Amount = initialDeposit
-    //    });
-
-    //    currentUser.Accounts.Add(account);
-    //    Console.WriteLine($"Account created successfully! Account Number: {accountNumber}");
-    //    PressAnyKeyToContinue();
-    //}
+ 
 
     private void OpenAccount()
     {
@@ -194,6 +168,13 @@ public class BankingSystem
 
         Console.WriteLine("Enter initial deposit amount:");
         decimal initialDeposit = GetDecimalInput("Enter a valid amount: ");
+
+        while(initialDeposit < 150)
+        {
+            Console.WriteLine("Initial deposit must be greater than 150.");
+            initialDeposit = GetDecimalInput("Enter a valid amount: ");
+
+        }
 
         string accountNumber = Guid.NewGuid().ToString().Substring(0, 8);
         var account = new Account(accountNumber, holderName, type, initialDeposit);
